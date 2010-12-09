@@ -154,7 +154,7 @@ it will simply do nothing. If there are notifications waiting to be delivered it
 login data and send notifications using HTTP POST to Google. The client can get an error from Google. There are
 several possibilities:
 
-|Error code 200| |
+|code 200| |
 | |Error: QuotaExceeded. It will cancel the notification sending and user should try to send them again after a while.|
 | |Error: DeviceQuotaExceeded. It will cancel the notification sending for the current device and continue from the other devices.|
 | |Error: InvalidRegistration. The devices registration_id is missing or invalid. The device and all its notifications will be deleted.|
@@ -162,10 +162,10 @@ several possibilities:
 | |Error: MessageTooBig. The maximum size of a c2dm push notification is 1024 bytes. User should reduce the size and try again.|
 | |Error: MissingCollapseKey. Google uses a property called collapse_key to collapse a group of like messages when the device is online, so that only the last message is sent to the client. It is required.|
 
-|Error code 503| |
+|code 503| |
 | |The server is currently unavailable. The sending process is stopped and sender must retry later. Senders that retry too often and too fast risk being blacklisted.|
 
-|Error code 401| |
+|code 401| |
 | |The ClientLogin auth is invalid. Check the config file.|
 
 Released under the MIT license.
