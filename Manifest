@@ -1,0 +1,16 @@
+LICENSE
+Manifest
+README
+Rakefile
+c2dm_on_rails.gemspec
+generators/c2dm_migrations_generator.rb
+generators/templates/c2dm_migrations/001_create_c2dm_devices.rb
+generators/templates/c2dm_migrations/002_create_c2dm_notifications.rb
+lib/c2dm_on_rails.rb
+lib/c2dm_on_rails/app/models/c2dm/base.rb
+lib/c2dm_on_rails/app/models/c2dm/device.rb
+lib/c2dm_on_rails/app/models/c2dm/notification.rb
+lib/c2dm_on_rails/c2dm_on_rails.rb
+lib/c2dm_on_rails/libs/connection.rb
+lib/c2dm_on_rails/tasks/c2dm.rake
+lib/c2dm_on_rails_tasks.rb
