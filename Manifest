@@ -1,6 +1,7 @@
+CHANGELOG
 LICENSE
 Manifest
-README
+README.textile
 Rakefile
 c2dm_on_rails.gemspec
 generators/c2dm_migrations_generator.rb
