@@ -1,4 +1,4 @@
-=C2dm on Rails (Android push notifications on Rails)
+h1. C2dm on Rails (Android push notifications on Rails)
 
 APN on Rails is a Ruby on Rails gem that allows you to easily add Apple Push Notification (iPhone)
 support to your Rails application.
@@ -6,7 +6,7 @@ support to your Rails application.
 C2dm on Rails is a Ruby on Rails gem that allows you to easily add Android push notification
 (Android 2.2> devices) to your Rails application.
 
-==Acknowledgements:
+h2. Acknowledgements:
 
 This gem is under construction and is forked from our project. The developer
 has some allocated hours for developing the gem further. The gem is tested
@@ -23,7 +23,7 @@ installation, migration generation and usage is copied from the original apn_on_
 gem. This is also my first rubygem, so please feel free to fix some oditties and please
 comment also.
 
-==Requirements:
+h2. Requirements:
 
 First it is necessary to sign up to Android Cloud to Device Messaging service.
 You need a role account email, it's password and the name of your Android app for
@@ -33,108 +33,139 @@ Sign up here:
 
 http://code.google.com/android/c2dm/signup.html
 
-==Installing:
+h2. Installing:
 
-===Stable (RubyForge):
+h3. Stable (RubyForge):
 
+<pre><code>
   $ sudo gem install c2dm_on_rails
+</code></pre>
 
-===Rails Gem Management:
+h3. Rails Gem Management:
 
 If you like to use the built in Rails gem management:
 
-  config.gem 'c2dm_on_rails'
+  <pre>
+      <code>
+          config.gem 'c2dm_on_rails'
+      </code>
+  </pre>
 
-==Setup and Configuration:
+h2. Setup and Configuration:
 
 Once you have the gem installed via your favorite gem installation, you need to require it so you can
 start to use it:
 
 Add the following require, wherever it makes sense to you:
 
-  require 'c2dm_on_rails'
+  <pre>
+      <code>
+          require 'c2dm_on_rails'
+      </code>
+  </pre>
 
 You also need to add the following to your Rakefile so you can use the
 Rake tasks that ship with C2dm on Rails:
 
-  begin
-    require 'c2dm_on_rails_tasks'
-  rescue MissingSourceFile => e
-    puts e.message
-  end
+  <pre>
+      <code>
+          begin
+            require 'c2dm_on_rails_tasks'
+          rescue MissingSourceFile => e
+            puts e.message
+          end
+      </code>
+  </pre>
 
 Now, to create the tables you need for C2dm on Rails, run the following task:
 
-  $ ruby script/generate c2dm_migrations
+  <pre>
+      <code>
+          $ ruby script/generate c2dm_migrations
+      </code>
+  </pre>
 
 C2dm on Rails uses the Configatron gem, http://github.com/markbates/configatron/tree/master, 
 to configure itself. C2dm on Rails has the following default configurations that you change as you
 see fit:
 
-  configatron.c2dm.api_url = 'https://android.apis.google.com/c2dm/send'
+  <pre>
+      <code>
+          configatron.c2dm.api_url = 'https://android.apis.google.com/c2dm/send'
+      </code>
+  </pre>
 
 C2dm on Rails uses also the gdata gem for connecting a Google account. The
 config file for Google Connect (config/c2dm.yml) should look like this:
 
-development:
-    username: your_user_name
-    password: password_for_the_account
-    app_name: your_applications_name
-
-production:
-    ... etc
+<pre>
+    <code>
+        development:
+            username: your_user_name
+            password: password_for_the_account
+            app_name: your_applications_name
+        
+        production:
+            ... etc
+    </code>
+</pre>
 
 That's it, now you're ready to start creating notifications.
 
-===Upgrade Notes:
+h3. Upgrade Notes:
 
 If you are upgrading to a new version of APN on Rails you should always run:
 
-  $ ruby script/generate c2dm_migrations
+  <pre>
+      <code>
+          $ ruby script/generate c2dm_migrations
+      </code>
+  </pre>
 
 That way you ensure you have the latest version of the database tables needed.
 
-==Example:
+h2. Example:
 
 More information about C2dm services should be read from http://code.google.com/android/c2dm/
 
-  $ ./script/console
-  >> device = C2dm::Device.create(:registration_id => "XXXXXXXXXXXXXXXXXXXXXX")
-  >> notification = C2dm::Notification.new
-  >> notification.device = device
-  >> notification.collapse_key = "private_message"
-  >> notification.delay_while_idle = true
-  >> notification.data = {"sender_id" => "420", "message_text" => "Wanna go for a ride?"}
-  >> notification.save
+  <pre>
+      <code>
+          $ ./script/console
+          >> device = C2dm::Device.create(:registration_id => "XXXXXXXXXXXXXXXXXXXXXX")
+          >> notification = C2dm::Notification.new
+          >> notification.device = device
+          >> notification.collapse_key = "private_message"
+          >> notification.delay_while_idle = true
+          >> notification.data = {"sender_id" => "420", "message_text" => "Wanna go for a ride?"}
+          >> notification.save
+      </code>
+  </pre>
 
 You can use the following Rake task to deliver your notifications:
 
-  $ rake c2dm:notifications:deliver
+  <pre>
+      <code>
+          $ rake c2dm:notifications:deliver
+      </code>
+  </pre>
 
 The Rake task will find any unsent notifications in the database. If there aren't any notifications
 it will simply do nothing. If there are notifications waiting to be delivered it will login with the provided
 login data and send notifications using HTTP POST to Google. The client can get an error from Google. There are
 several possibilities:
 
-Error code 200:
-    Error: QuotaExceeded. It will cancel the notification sending and user should try to send them again after 
-    a while.
-    Error: DeviceQuotaExceeded. It will cancel the notification sending for the current device and continue from
-    the other devices.
-    Error: InvalidRegistration. The devices registration_id is missing or invalid. The device and all its 
-    notifications will be deleted.
-    Error: NotRegistred. The registration_id is no longer valid. The device and all its notifications will be
-    deleted.
-    Error: MessageTooBig. The maximum size of a c2dm push notification is 1024 bytes. User should reduce the size
-    and try again.
-    Error: MissingCollapseKey. Google uses a property called collapse_key to collapse a group of like messages
-    when the device is online, so that only the last message is sent to the client. It is required.
+|Error code 200| |
+| |Error: QuotaExceeded. It will cancel the notification sending and user should try to send them again after a while.|
+| |Error: DeviceQuotaExceeded. It will cancel the notification sending for the current device and continue from the other devices.|
+| |Error: InvalidRegistration. The devices registration_id is missing or invalid. The device and all its notifications will be deleted.|
+| |Error: NotRegistred. The registration_id is no longer valid. The device and all its notifications will be deleted.|
+| |Error: MessageTooBig. The maximum size of a c2dm push notification is 1024 bytes. User should reduce the size and try again.|
+| |Error: MissingCollapseKey. Google uses a property called collapse_key to collapse a group of like messages when the device is online, so that only the last message is sent to the client. It is required.|
 
-Error code 503:
-    The server is currently unavailable. The sending process is stopped and sender must retry later. Senders
-    that retry too often and too fast risk being blacklisted.
+|Error code 503| |
+| |The server is currently unavailable. The sending process is stopped and sender must retry later. Senders that retry too often and too fast risk being blacklisted.|
 
-Error code 401:
-    The ClientLogin auth is invalid. Check the config file.
+|Error code 401| |
+| |The ClientLogin auth is invalid. Check the config file.|
 
 Released under the MIT license.
