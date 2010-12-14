@@ -8,4 +8,4 @@ namespace :c2dm do
     end
     
   end # notifications
-end # apn
+end # c2dm
