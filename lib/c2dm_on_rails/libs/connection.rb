@@ -1,5 +1,6 @@
 require 'gdata'
 require 'net/https'
+require 'uri'
 
 module C2dm
   module Connection
@@ -9,7 +10,7 @@ module C2dm
         headers = { "Content-Type" => "application/x-www-form-urlencoded", 
                     "Authorization" => "GoogleLogin auth=#{token}" }
 
-        message_data = noty.data.map{|k, v| "&data.#{k}=#{v}"}.reduce{|k, v| k + v}
+        message_data = noty.data.map{|k, v| "&data.#{k}=#{URI.escape(v)}"}.reduce{|k, v| k + v}
         data = "registration_id=#{noty.device.registration_id}&collapse_key=#{noty.collapse_key}#{message_data}"
 
         data = data + "&delay_while_idle" if noty.delay_while_idle

@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('c2dm_on_rails', '0.1.5') do |p|
+Echoe.new('c2dm_on_rails', '0.1.6') do |p|
   p.description           = "Android push notifications on Rails."
   p.url                   = "http://github.com/pimeys/c2dm_on_rails"
   p.author                = "Julius de Bruijn"
