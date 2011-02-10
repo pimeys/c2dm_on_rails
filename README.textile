@@ -1,6 +1,6 @@
 h1. C2dm on Rails (Android push notifications on Rails)
 
-APN on Rails is a Ruby on Rails gem that allows you to easily add Apple Push Notification (iPhone)
+C2dm on Rails is a Ruby on Rails gem that allows you to easily add Apple Push Notification (iPhone)
 support to your Rails application.
 
 C2dm on Rails is a Ruby on Rails gem that allows you to easily add Android push notification
@@ -102,7 +102,7 @@ That's it, now you're ready to start creating notifications.
 
 h3. Upgrade Notes:
 
-If you are upgrading to a new version of APN on Rails you should always run:
+If you are upgrading to a new version of C2dm on Rails you should always run:
 
 <pre><code>
   $ ruby script/generate c2dm_migrations
