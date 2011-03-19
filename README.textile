@@ -9,13 +9,7 @@ C2dm on Rails is a Ruby on Rails gem that allows you to easily add Android push 
 h2. Acknowledgements:
 
 This gem is under construction and is forked from our project. The developer
-has some allocated hours for developing the gem further. The gem is tested
-quite lightly and not in production environment yet.
-
-This gem is a re-write of a plugin that was written by Fabien Penso and Sam Soffes.
-Their plugin was a great start, but it just didn't quite reach the level I hoped it would.
-I've re-written, as a gem, added a ton of tests, and I would like to think that I made it
-a little nicer and easier to use.
+has some allocated hours for developing the gem further.
 
 This gem is a re-write of a apn_on_rails gem that was written by Mark Bates and
 before he made it a gem, it was started by Fabien Penso and Sam Soffes. The gem
