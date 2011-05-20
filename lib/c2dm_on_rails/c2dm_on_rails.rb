@@ -14,7 +14,7 @@ end
 
 begin 
   APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/c2dm.yml")[rails_env]
-rescue ex
+rescue => ex
   raise C2dm::Errors.ConfigFileNotFound.new(ex.message)
 end
 
@@ -23,7 +23,7 @@ begin
   configatron.c2dm.username = APP_CONFIG['username']
   configatron.c2dm.password = APP_CONFIG['password']
   configatron.c2dm.app_name = APP_CONFIG['app_name']
-rescue ex
+rescue => ex
   raise C2dm::Errors.ConfigFileMissingAttributes.new(ex.message)
 end
 
