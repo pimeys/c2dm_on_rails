@@ -1,3 +1,10 @@
+NOTICE:
+
+This gem works only with Rails 2 and Ruby 1.8. I currently have time only for
+bug fixes, so if somebody would make this work with Ruby 1.9/Rails 3, please
+fork it and throw me a pull request, so I'll make a new branch and release a
+new version to rubygems.
+
 h1. C2dm on Rails (Android push notifications on Rails)
 
 C2dm on Rails is a Ruby on Rails gem that allows you to easily add Apple Push Notification (iPhone)
