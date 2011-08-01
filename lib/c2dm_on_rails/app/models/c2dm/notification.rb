@@ -36,7 +36,7 @@ class C2dm::Notification < C2dm::Base
     # 
     # This can be run from the following Rake task:
     #   $ rake c2dm:notifications:deliver
-    def send_notifications(notifications = C2dm::Notification.all(:conditions => {:sent_at => nil}, :joins => :device))
+    def send_notifications(notifications = C2dm::Notification.all(:conditions => {:sent_at => nil}, :joins => :device, :readonly => false))
       unless notifications.nil? || notifications.empty?
         C2dm::Connection.open do |token|
           notifications.each do |noty|
