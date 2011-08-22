@@ -18,6 +18,7 @@ module C2dm
         url = configatron.c2dm.api_url
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
    
         resp, dat = http.post(url.path, data, headers)
 

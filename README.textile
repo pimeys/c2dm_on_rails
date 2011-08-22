@@ -1,16 +1,6 @@
-NOTICE:
+h1. C2dm on Rails (Android Cloud to Device Messaging on Rails)
 
-This gem works only with Rails 2 and Ruby 1.8. I currently have time only for
-bug fixes, so if somebody would make this work with Ruby 1.9/Rails 3, please
-fork it and throw me a pull request, so I'll make a new branch and release a
-new version to rubygems.
-
-h1. C2dm on Rails (Android push notifications on Rails)
-
-C2dm on Rails is a Ruby on Rails gem that allows you to easily add Apple Push Notification (iPhone)
-support to your Rails application.
-
-C2dm on Rails is a Ruby on Rails gem that allows you to easily add Android push notification
+C2dm on Rails is a Ruby on Rails gem that allows you to easily add Android Cloud to Device Messaging (push notification)
 (Android 2.2> devices) to your Rails application.
 
 h2. Acknowledgements:
@@ -36,32 +26,14 @@ Sign up here:
 
 h2. Installing:
 
-h3. Stable (RubyForge):
-
+Add the following line to your Gemfile:
 <pre><code>
-  $ sudo gem install c2dm_on_rails
-</code></pre>
-
-h3. Rails Gem Management:
-
-If you like to use the built in Rails gem management:
-
-<pre><code>
-  config.gem 'c2dm_on_rails'
+   gem 'c2dm_on_rails'
 </code></pre>
 
 h2. Setup and Configuration:
 
-Once you have the gem installed via your favorite gem installation, you need to require it so you can
-start to use it:
-
-Add the following require, wherever it makes sense to you:
-
-<pre><code>
-  require 'c2dm_on_rails'
-</code></pre>
-
-You also need to add the following to your Rakefile so you can use the
+You need to add the following to your Rakefile so you can use the
 Rake tasks that ship with C2dm on Rails:
 
 <pre><code>
@@ -75,7 +47,7 @@ Rake tasks that ship with C2dm on Rails:
 Now, to create the tables you need for C2dm on Rails, run the following task:
 
 <pre><code>
-  $ ruby script/generate c2dm_migrations
+  $ ruby generate c2dm_migrations
 </code></pre>
 
 C2dm on Rails uses the Configatron gem, "http://github.com/markbates/configatron/tree/master":http://github.com/markbates/configatron/tree/master, 
@@ -106,7 +78,7 @@ h3. Upgrade Notes:
 If you are upgrading to a new version of C2dm on Rails you should always run:
 
 <pre><code>
-  $ ruby script/generate c2dm_migrations
+  $ ruby generate c2dm_migrations
 </code></pre>
 
 That way you ensure you have the latest version of the database tables needed.

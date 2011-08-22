@@ -20,11 +20,14 @@ easily add Android Cloud to Device Messaging support to your Rails application.
   ]
   s.files = [
     "CHANGELOG",
+    "Gemfile",
+    "Gemfile.lock",
     "LICENSE",
     "Manifest",
     "README.textile",
     "Rakefile",
     "VERSION",
+    "c2dm_on_rails.gemspec",
     "generators/c2dm_migrations_generator.rb",
     "generators/templates/c2dm_migrations/001_create_c2dm_devices.rb",
     "generators/templates/c2dm_migrations/002_create_c2dm_notifications.rb",
@@ -47,11 +50,17 @@ easily add Android Cloud to Device Messaging support to your Rails application.
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<jeweler>, [">= 0"])
+      s.add_runtime_dependency(%q<configatron>, [">= 0"])
+      s.add_runtime_dependency(%q<gdata>, [">= 0"])
     else
       s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<configatron>, [">= 0"])
+      s.add_dependency(%q<gdata>, [">= 0"])
     end
   else
     s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<configatron>, [">= 0"])
+    s.add_dependency(%q<gdata>, [">= 0"])
   end
 end
 

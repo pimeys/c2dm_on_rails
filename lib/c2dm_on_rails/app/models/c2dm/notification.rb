@@ -40,7 +40,9 @@ class C2dm::Notification < C2dm::Base
       unless notifications.nil? || notifications.empty?
         C2dm::Connection.open do |token|
           notifications.each do |noty|
+            puts "sending notification #{noty.id} to device #{noty.device.registration_id}"
             response = C2dm::Connection.send_notification(noty, token)
+            puts "response: #{response[:code]}; #{response.inspect}"
             if response[:code] == 200
               case response[:message]
               when "Error=QuotaExceeded"
