@@ -47,7 +47,7 @@ Rake tasks that ship with C2dm on Rails:
 Now, to create the tables you need for C2dm on Rails, run the following task:
 
 <pre><code>
-  $ ruby generate c2dm_migrations
+  $ rails generate c2dm_migrations
 </code></pre>
 
 C2dm on Rails uses the Configatron gem, "http://github.com/markbates/configatron/tree/master":http://github.com/markbates/configatron/tree/master, 
@@ -78,7 +78,7 @@ h3. Upgrade Notes:
 If you are upgrading to a new version of C2dm on Rails you should always run:
 
 <pre><code>
-  $ ruby generate c2dm_migrations
+  $ rails generate c2dm_migrations
 </code></pre>
 
 That way you ensure you have the latest version of the database tables needed.
