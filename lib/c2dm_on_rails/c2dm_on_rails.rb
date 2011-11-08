@@ -78,13 +78,13 @@ module C2dm # :nodoc:
   end # Errors
 end # APN
 
-rails_env = 'development'
-if defined?(RAILS_ENV)
-  rails_env = RAILS_ENV
-end
-
+# rails_env = 'development'
+# if defined?(RAILS_ENV)
+#   rails_env = RAILS_ENV
+# end
+# 
 # begin
-#   APP_CONFIG = YAML.load_file("#{::Rails.root}/config/c2dm.yml")[rails_env]
+#   APP_CONFIG = YAML.load_file(File.join(::Rails.root.to_s, "config", "c2dm.yml"))[rails_env]
 # rescue => ex
 #   raise C2dm::Errors::ConfigFileNotFound.new(ex.message)
 # end

@@ -13,9 +13,9 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   gem.name = "c2dm_on_rails"
-  gem.summary = %Q{Android Cloud to Device Messaging (push notifications) on Rails}
+  gem.summary = "Android Cloud to Device Messaging (push notifications) on Rails"
   
-  gem.description = %Q{C2DM on Rails is a Ruby on Rails gem that allows you to
+  gem.description = %q{C2DM on Rails is a Ruby on Rails gem that allows you to
 easily add Android Cloud to Device Messaging support to your Rails application.
 }
 
