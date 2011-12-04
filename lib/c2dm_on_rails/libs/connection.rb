@@ -15,7 +15,8 @@ module C2dm
 
         data = data + "&delay_while_idle" if noty.delay_while_idle
 
-        url = configatron.c2dm.api_url
+        url_string = configatron.c2dm.api_url
+        url=URI.parse url_string
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
