@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{c2dm_on_rails}
-  s.version = "0.1.8"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Julius de Bruijn"]
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{C2DM on Rails is a Ruby on Rails gem that allows you to
 easily add Android Cloud to Device Messaging support to your Rails application.
 }
-  s.email = %q{julius.debruijn@digia.com}
+  s.email = %q{julius.bruijn@sponsorpay.com}
   s.extra_rdoc_files = [
     "LICENSE",
     "README.textile"
