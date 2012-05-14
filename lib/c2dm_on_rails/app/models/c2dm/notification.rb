@@ -16,9 +16,13 @@ require 'uri'
 # As each C2dm::Notification is sent the <tt>sent_at</tt> column will be timestamped,
 # so as to not be sent again.
 class C2dm::Notification < C2dm::Base
+  self.table_name= "c2dm_notifications"
+  
   include ::ActionView::Helpers::TextHelper
   extend ::ActionView::Helpers::TextHelper
   serialize :data
+  
+  
   
   belongs_to :device, :class_name => 'C2dm::Device'
   

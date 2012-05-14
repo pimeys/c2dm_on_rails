@@ -9,6 +9,7 @@
 # Example:
 #   Device.create(:registration_id => 'FOOBAR')
 class C2dm::Device < C2dm::Base
+  self.table_name= "c2dm_devices"
   
   has_many :notifications, :class_name => 'C2dm::Notification', :dependent => :destroy
   
